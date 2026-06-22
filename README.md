@@ -53,7 +53,7 @@ cp example.env .env
 # 3. Instalar dependencias
 pnpm install
 
-# 5. Iniciar servidor
+# 4. Iniciar servidor
 pnpm dev
 ```
 
