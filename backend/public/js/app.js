@@ -140,7 +140,8 @@ function renderEvolucionChart(data) {
     });
 
     const labels = months.map(m => {
-        const d = new Date(m + 'T00:00:00');
+        const d = normalizeDate(m);
+        if (!d) return m;
         return d.toLocaleString('es', { month: 'short', year: '2-digit' });
     });
 
