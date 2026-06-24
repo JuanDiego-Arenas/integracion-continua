@@ -43,7 +43,7 @@ CONTROLSTOCK es un sistema web para la gestión empresarial de inventarios, desa
 ### Requisitos
 - Node.js 18+
 - PostgreSQL 16+
-- pnpm (`npm install -g pnpm`)
+- pnpm (`npm install -g pnpm@10`)
 
 ### Pasos
 
