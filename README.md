@@ -150,7 +150,6 @@ integracion-continua/
 ├── README.md
 └── .dockerignore
 ```
-
 ## Scripts del backend
 
 | Script        | Descripción                                              |
