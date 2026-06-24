@@ -60,6 +60,12 @@ pipeline {
         }
     }
 
+    stage('Deploy') {
+    steps {
+        sh 'docker compose up -d --build'
+    }
+}
+
     post {
         always {
             echo "Pipeline finalizado con estado: ${currentBuild.currentResult}"
