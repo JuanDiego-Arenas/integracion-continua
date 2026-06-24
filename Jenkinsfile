@@ -63,10 +63,18 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh 'docker compose -f  docker-compose.yml  up -d --build'
-            }
+    stage('Deploy') {
+        steps {
+            sh '''
+                docker stop backend || true
+                docker rm backend || true
+    
+                docker run -d \
+                  --name backend \
+                  -p 3000:3000 \
+                  --restart unless-stopped \
+                  ${DOCKER_IMAGE}:${BUILD_NUMBER}
+            '''
         }
     }
 
