@@ -48,11 +48,8 @@ pipeline {
             }
         }
 
-        stage('Verify Docker') {
-            steps {
-                sh 'docker --version'
-                sh 'docker compose version'
-            }
+        stage('Verify Docker')
+            { steps { sh 'docker --version' } 
         }
 
         stage('Build Docker image') {
