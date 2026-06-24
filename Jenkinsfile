@@ -44,6 +44,12 @@ pipeline {
             }
         }
 
+        stage('Verify Docker') {
+            steps {
+                sh 'docker --version'
+            }
+}
+
         stage('Build Docker image') {
             steps {
                 sh "docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} ./backend"
