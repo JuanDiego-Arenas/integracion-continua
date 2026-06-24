@@ -1,9 +1,6 @@
 pipeline {
     agent any
-
-    tools {
-        nodejs 'node18'
-    }
+    tools { nodejs 'node18' }
 
     environment {
         DOCKER_IMAGE = 'grupo14/backend'
@@ -16,6 +13,13 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Verify Node') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
+        
 
         stage('Install dependencies') {
             steps {
