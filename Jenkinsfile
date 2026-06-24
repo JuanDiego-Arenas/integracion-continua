@@ -15,7 +15,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 dir('backend') {
-                    sh 'pnpm install --frozen-lockfile'
+                    sh 'corepack pnpm install --frozen-lockfile'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
         stage('Lint') {
             steps {
                 dir('backend') {
-                    sh 'pnpm lint'
+                    sh 'corepack pnpm lint'
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
         stage('Test') {
             steps {
                 dir('backend') {
-                    sh 'pnpm test'
+                    sh 'corepack pnpm test'
                 }
             }
         }
