@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'node18'
-    }
-
     environment {
         DOCKER_IMAGE = 'grupo14/backend'
     }
