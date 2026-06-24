@@ -5,6 +5,7 @@ import { initDatabase } from './db/init.js';
 
 dotenv.config();
 
+//se ejecuta en el puerto 3000
 const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
