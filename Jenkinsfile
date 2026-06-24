@@ -48,33 +48,36 @@ pipeline {
             }
         }
 
-        stage('Verify Docker')
-            { steps { sh 'docker --version' } 
+        stage('Verify Docker') {
+            steps {
+                sh 'docker --version'
+            }
         }
 
         stage('Build Docker image') {
             steps {
                 sh """
                     docker build \
-                    -t ${DOCKER_IMAGE}:${BUILD_NUMBER} \
-                    -t ${DOCKER_IMAGE}:latest \
-                    ./backend
+                        -t ${DOCKER_IMAGE}:${BUILD_NUMBER} \
+                        -t ${DOCKER_IMAGE}:latest \
+                        ./backend
                 """
             }
         }
 
-    stage('Deploy') {
-        steps {
-            sh '''
-                docker stop backend || true
-                docker rm backend || true
-    
-                docker run -d \
-                  --name backend \
-                  -p 3000:3000 \
-                  --restart unless-stopped \
-                  ${DOCKER_IMAGE}:${BUILD_NUMBER}
-            '''
+        stage('Deploy') {
+            steps {
+                sh """
+                    docker stop backend || true
+                    docker rm backend || true
+
+                    docker run -d \
+                        --name backend \
+                        -p 3000:3000 \
+                        --restart unless-stopped \
+                        ${DOCKER_IMAGE}:${BUILD_NUMBER}
+                """
+            }
         }
     }
 
