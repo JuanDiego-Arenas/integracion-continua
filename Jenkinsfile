@@ -31,7 +31,7 @@ pipeline {
         stage('Lint') {
             steps {
                 dir('backend') {
-                    sh 'npm lint'
+                    sh 'npm run lint'
                 }
             }
         }
